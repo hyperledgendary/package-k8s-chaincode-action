@@ -1,0 +1,19 @@
+name: 'Package Kubernetes Chaincode'
+description: 'Create a kubernetes chaincode package file'
+inputs:
+  chaincode-label:
+    description: 'Chaincode label'
+    required: true
+  chaincode-image:
+    description: 'Chaincode docker image name'
+    required: true
+  chaincode-tag:
+    description: 'Chaincode docker image tag'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.chaincode-label }}
+    - ${{ inputs.chaincode-image }}
+    - ${{ inputs.chaincode-tag }}
