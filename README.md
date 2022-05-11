@@ -28,7 +28,7 @@ None.
 ## Example usage
 
 ```yaml
-uses: hyperledgendary/package-k8s-chaincode-action@<commit SHA>
+uses: hyperledgendary/package-k8s-chaincode-action@<Commit SHA>
 with:
   chaincode-label: conga-nft-contract
   chaincode-image: ghcr.io/hyperledgendary/conga-nft-contract
