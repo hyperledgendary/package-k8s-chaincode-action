@@ -7,8 +7,8 @@ inputs:
   chaincode-image:
     description: 'Chaincode docker image name'
     required: true
-  chaincode-tag:
-    description: 'Chaincode docker image tag'
+  chaincode-digest:
+    description: 'Chaincode docker image digest'
     required: true
 runs:
   using: 'docker'
@@ -16,4 +16,4 @@ runs:
   args:
     - ${{ inputs.chaincode-label }}
     - ${{ inputs.chaincode-image }}
-    - ${{ inputs.chaincode-tag }}
+    - ${{ inputs.chaincode-digest }}

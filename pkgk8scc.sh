@@ -12,7 +12,7 @@ usage() {
     echo "    Flags:"
     echo "    -l <label> - chaincode label"
     echo "    -n <name> - docker image name"
-    echo "    -t <tag> - docker image tag"
+    echo "    -d <digest> - docker image digest"
     echo "    -m <META-INF directory> - state database index definitions for CouchDB"
     echo "    -h - Print this message"
 }
@@ -34,8 +34,8 @@ while getopts "hl:n:t:m:" opt; do
         n)
             name=${OPTARG}
             ;;
-        t)
-            tag=${OPTARG}
+        d)
+            digest=${OPTARG}
             ;;
         m)
             metainf=${OPTARG}
@@ -48,7 +48,7 @@ while getopts "hl:n:t:m:" opt; do
 done
 shift $((OPTIND-1))
 
-if [ -z "$label" ] || [ -z "$name" ] || [ -z "$tag" ]; then
+if [ -z "$label" ] || [ -z "$name" ] || [ -z "$digest" ]; then
     usage
     exit 1
 fi
@@ -68,7 +68,7 @@ tempdir=$(mktemp -d -t "$prefix.XXXXXXXX") || error_exit "Error creating tempora
 if [ -n "$DEBUG" ]; then
     echo "label = $label"
     echo "name = $name"
-    echo "tag = $tag"
+    echo "digest = $digest"
     echo "metainf = $metainf"
     echo "tempdir = $tempdir"
 fi
@@ -77,7 +77,7 @@ mkdir -p "$tempdir/src"
 cat << IMAGEJSON-EOF > "$tempdir/src/image.json"
 {
   "name": "$name",
-  "tag": "$tag"
+  "digest": "$digest"
 }
 IMAGEJSON-EOF
 
