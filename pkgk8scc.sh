@@ -5,7 +5,7 @@
 #
 
 usage() {
-    echo "Usage: pkgk8scc.sh -l <label> -n <name> -t <tag> [-m <META-INF directory>]"
+    echo "Usage: pkgk8scc.sh -l <label> -n <name> -d <digest> [-m <META-INF directory>]"
     echo
     echo "  Creates a k8s chaincode package"
     echo
