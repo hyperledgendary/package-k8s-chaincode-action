@@ -17,9 +17,9 @@ This action create a kubernetes chaincode package which can be used with the [Ku
 
 **Required** The chaincode docker image name.
 
-## `chaincode-tag`
+## `chaincode-digest`
 
-**Required** The chaincode docker image tag.
+**Required** The chaincode [docker image digest](https://docs.docker.com/engine/reference/commandline/pull/#pull-an-image-by-digest-immutable-identifier).
 
 ## Outputs
 
@@ -32,5 +32,5 @@ uses: hyperledgendary/package-k8s-chaincode-action@<Commit SHA>
 with:
   chaincode-label: conga-nft-contract
   chaincode-image: ghcr.io/hyperledgendary/conga-nft-contract
-  chaincode-tag: $GITHUB_SHA
+  chaincode-digest: sha256:b35962f000d26ad046d4102f22d70a1351692fc69a9ddead89dfa13aefb942a7
 ```
